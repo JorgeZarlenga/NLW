@@ -1,0 +1,103 @@
+<!--Usar Ctrl + Shift + R no navegador na página para fazer um hard reload e não reutilizar informações em cache-->
+
+<!--Usar Alt + Z no código para adaptá-lo-->
+<!--Isso é uma tag <html>-->
+
+<!--Emmet - Agiliza a escrita do código-->
+<!--Na tag <head> irá configurações do meu documento-->
+<!--Na tag <body> irá todo conteúdo visível na página-->
+<!--
+        HTML:
+
+        HyperText
+            Hipertext
+            <a> - Coloca links na página
+
+        Markup
+            Marcação
+
+        Language
+            Linguagem
+    -->
+
+
+<!DOCTYPE html>
+<html lang="pt_br">  <!--lang é um atributo que define a linguagem do html-->
+<head>
+    <meta charset="UTF-8"> <!--charset define atributos específicos da página, como tipo de texto-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Define a estilização para tamanhos de tela diferentes-->
+    <meta name="theme-color" content="#8257E5">
+
+    <title>Proffy | Sua plataforma de estudos online</title>
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/png"> <!--Define o ícone da aba do navegador-->
+
+    <style>
+
+        /*
+
+        CSS:
+        
+        Cascading
+        Em cascata
+
+        StyleSheet
+        Folha de estilo
+
+        Ordem:
+
+        1 - # (id)
+        2 - . (class)
+        3 - tag
+        
+        
+
+        .bodie #page-landing {
+            color: gray;  / Chave (ou propriedade) e valor /
+        }
+
+        #page-landing{
+            color: red;
+        }
+        
+        h1{
+            color: yellow;
+        }
+
+        */
+        
+    </style>
+
+    <link rel="stylesheet" href="/styles/main.css"> <!--/ indica que o arquivo está na raiz do projeto-->
+    <link rel="stylesheet" href="/styles/partials/page-landing.css"> <!--/ indica que o arquivo está na raiz do projeto-->
+
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
+
+</head>
+
+<body id="page-landing"> <!--Todo conteúdo é uma caixa-->
+    <div id="container">
+        <div class="logo-container">
+            <img src="/images/logo.svg" alt="Proffy">
+            <!-- <img src="" alt="Logo"> img é uma tag autoclose. alt define uma alternativa em texto quando o src não é encontrado, além de servir para acessibilidade (leitores de conteúdo) e melhoria para motores de busca -->
+            <h2>Sua plataforma de estudos online</h2>
+        </div>
+
+        <img class="hero-image" src="/images/landing.svg" alt="Plataforma de estudos">
+        
+        <div class="buttons-container">
+            <a class="study" href="/study.html">
+                <img src="/images/icons/study.svg" alt="Estudar">
+                Estudar
+            </a>
+            <a class="give-classes" href="/give-classes.html">
+                <img src="/images/icons/give-classes.svg" alt="Dar aulas">
+                Dar aulas
+            </a>
+        </div>
+        <p class="total-connections">
+            Total de 200 conexões já realizadas
+            <img src="/images/icons/purple-heart.svg" alt="Coração roxo">
+        </p>
+    </div>
+</body>
+</html>
