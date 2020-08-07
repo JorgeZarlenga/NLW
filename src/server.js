@@ -26,20 +26,29 @@ const proffys = [
 ]
 
 function pageLanding(req, res){
-    return res.sendFile(__dirname + "/views/index.html")
+    return res.render("index.html")
 }
 
 function pageStudy(req, res){
-    return res.sendFile(__dirname + "/views/study.html")
+    return res.render("/views/study.html")
 }
 
 function pageGiveClasses(req, res)
 {
-    return res.sendFile(__dirname + "/views/give-classes.html")
+    return res.sendFile("/views/give-classes.html")
 }
 
 const express = require('express')
 const server = express()
+
+
+// Configurar nunjucks:
+
+nunjucks.configure('src/views', {
+    const nunjucks = require('nunjucks') // Template engine
+    express: server,
+    noCache: true, // Desativação da cache para verificar as alterações feitas
+})
 
 server.use(express.static("public")) // Configuração do servidor (arquivos estáticos são imagens, scripts do front-end)
 
@@ -48,5 +57,4 @@ server.use(express.static("public")) // Configuração do servidor (arquivos est
 .get("/", pageLanding)
 .get("/study", pageStudy)
 .get("/give-classes", pageGiveClasses)
-
 .listen(5500)
