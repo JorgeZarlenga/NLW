@@ -63,6 +63,11 @@ const weekdays = [
 
 // Funcionalidades
 
+function getSubject(subjectNumber){ // Para converter os índices nos textos
+    const position = +subjectNumber - 1 // + para garantir que é um número
+    return subjects[position]
+}
+
 function pageLanding(req, res){
     return res.render("index.html")
 }
@@ -72,16 +77,30 @@ function pageStudy(req, res){
     return res.render("study.html", {proffys, filters, subjects, weekdays})
 }
 
-function pageGiveClasses(req, res)
-{
+function pageGiveClasses(req, res){
+    const data = req.query
+  
+    // Transformando os dados em array
+    const isNotEmpty = Object.keys(data).length > 0
+
+    if(isNotEmpty){   
+        
+        data.subject = getSubject(data.subject)
+        
+        // Adicionar dados à lista de proffys
+        proffys.push(data)
+
+        return res.redirect("/study")
+    }
+
+    //Se não, mostrar a página
+
     return res.render("give-classes.html", {subjects, weekdays})
 }
-
 
 // Servidor
 const express = require('express')
 const server = express()
-
 
 // Configurar nunjucks (template engine):
 const nunjucks = require('nunjucks') // Template engine

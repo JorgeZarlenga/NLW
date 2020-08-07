@@ -40,5 +40,11 @@ textarea-block{
 
     position: absolute; /*Cria novo contexto ("folha de papel sobreposta") numa posição absoluta na página*/
     left: 1.6rem;
-    bottom: 0;
+    bottom: 0px;
+}
+
+label small{
+    font-size: 1.2rem;
+    padding-left: 1.2rem;
+    color: var(--color-small-info);
 }
