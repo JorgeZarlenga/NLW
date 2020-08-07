@@ -36,14 +36,40 @@ const proffys = [
     }
 ]
 
+// Criação de array para gerar um loop para adicionar o filtro ao study.html
+const subjects = [
+    "Artes",
+    "Biologia",
+    "Ciências",
+    "Educação física",
+    "Física",
+    "Geografia",
+    "História",
+    "Matemática",
+    "Português",
+    "Química"
+]
 
+const weekdays = [
+    "Domingo",
+    "Segunda-feira",
+    "Terça-feira",
+    "Quarta-feira",
+    "Quinta-feira",
+    "Sexta-feira",
+    "Sábado"
+]
+
+
+// Funcionalidades
 
 function pageLanding(req, res){
     return res.render("index.html")
 }
 
 function pageStudy(req, res){
-    return res.render("study.html", {proffys})
+    const filters = req.query
+    return res.render("study.html", {proffys, filters, subjects, weekdays})
 }
 
 function pageGiveClasses(req, res)
@@ -51,11 +77,13 @@ function pageGiveClasses(req, res)
     return res.render("give-classes.html")
 }
 
+
+// Servidor
 const express = require('express')
 const server = express()
 
 
-// Configurar nunjucks:
+// Configurar nunjucks (template engine):
 const nunjucks = require('nunjucks') // Template engine
 
 nunjucks.configure('src/views', {
@@ -63,6 +91,7 @@ nunjucks.configure('src/views', {
     noCache: true, // Desativação da cache para verificar as alterações feitas
 })
 
+// Início e configuração do servidor
 server.use(express.static("public")) // Configuração do servidor (arquivos estáticos são imagens, scripts do front-end)
 
 // Definindo as rotas da aplicação:
@@ -70,4 +99,6 @@ server.use(express.static("public")) // Configuração do servidor (arquivos est
 .get("/", pageLanding)
 .get("/study", pageStudy)
 .get("/give-classes", pageGiveClasses)
+
+// Start do servidor
 .listen(5500)
