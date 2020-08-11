@@ -13,7 +13,6 @@ module.exports = async function(db, {proffyValue, classValue, classScheduleValue
             "${proffyValue.avatar}",
             "${proffyValue.whatsapp}",
             "${proffyValue.bio}"
-
         );
 
     `) // Crase no js é chamada de template literals ($ coloca variável dentro do texto)
