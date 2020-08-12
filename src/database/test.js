@@ -12,7 +12,7 @@ Database.then(async(db) => { // Função curta
      }
 
      classValue = { // Não pode ser apenas classValue por ser palavra reservada
-        subject: "Química",
+        subject: 1,
         cost: "R$20", 
         // O proffy_id virá pelo banco de dados
      }
@@ -60,10 +60,10 @@ Database.then(async(db) => { // Função curta
         FROM class_schedule
         WHERE class_schedule.class_id = "1"
         AND class_schedule.weekday = "0"
-        AND class_schedule.time_from <= "130"
+        AND class_schedule.time_from <= "1300"
         AND class_schedule.time_to > "1300"
 
-     `)
+     `) // .* indica todas as colunas
 
      console.log(selectClassesSchedules)
 
